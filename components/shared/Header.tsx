@@ -49,7 +49,7 @@ const Header = () => {
           <MessagesSquare className="h-5" />
           <p>Messaging</p>
         </Link>
-``
+
         <SignedIn>
           <UserButton />
         </SignedIn>
