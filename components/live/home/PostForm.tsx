@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
-// import createPostAction from "@/actions/createPostAction";
+import createPostAction from "@/actions/createPostAction";
 import { useUser } from "@clerk/nextjs";
 import { useRef, useState } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -28,7 +28,7 @@ function PostForm() {
     setPreview(null);
 
     try {
-    //   await createPostAction(formDataCopy);
+      await createPostAction(formDataCopy);
     } catch (error) {
       console.error(`Error creating post: ${error}`);
 

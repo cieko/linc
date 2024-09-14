@@ -1,6 +1,11 @@
 "use server";
 
-import { auth, currentUser } from "@clerk/nextjs/server";
+import { Post } from "@/mongodb/models/post";
+import { IUser } from "@/types/user";
+import { 
+  // auth, 
+  currentUser 
+} from "@clerk/nextjs/server";
 
 export default async function createPostAction(formData: FormData) {
   const user = await currentUser();
@@ -20,10 +25,33 @@ export default async function createPostAction(formData: FormData) {
   }
 
   // define user
-
-  // upload image if there is one
+  const userDB: IUser = {
+    userId: user.id,
+    userImage: user.imageUrl,
+    firstName: user.firstName || "",
+    lastName: user.lastName || ""
+  }
 
   // create post in database
+  try {
+
+    if (image.size > 0) {
+      // 1. upload image if there is one - MS Blob Storage
+      // 2. create post in database with image
+  
+    } else {
+      // 1. create post in database without image
+      
+      const body = {
+        user: userDB,
+        text: postInput,
+      };
+  
+      await Post.create(body);
+    }
+  } catch (error: any) {
+    throw new Error("Failed to create post", error)
+  }
 
   // revalidate homepage path '/'
 }
