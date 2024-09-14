@@ -10,7 +10,7 @@ const Header = () => {
     <div className='flex items-center p-2 max-w-6xl mx-auto'>
       <Image
         className='rounded-lg'
-        src={`https://links.papareact.com/b3z`}
+        src={`/logo.svg`}
         width={40}
         height={40}
         alt='logo'
@@ -19,7 +19,7 @@ const Header = () => {
        {/* Search */}
       {/* SearchIcon */}
       <div className="flex-1">
-        <form className="flex items-center space-x-1 bg-gray-100 p-2 rounded-md flex-1 mx-2 max-w-96">
+        <form className="md:flex items-center space-x-1 bg-gray-100 p-2 rounded-md mx-2 hidden md:max-w-96">
           <SearchIcon className="h-4 text-gray-600" />
           <input
             type="text"
@@ -35,12 +35,12 @@ const Header = () => {
           <p>Home</p>
         </Link>
 
-        <Link href="" className="icon hidden md:flex">
+        <Link href="" className="icon hidden xs:flex">
           <UsersIcon className="h-5" />
           <p>Network</p>
         </Link>
 
-        <Link href="" className="icon hidden md:flex">
+        <Link href="" className="icon hidden xs:flex">
           <Briefcase className="h-5" />
           <p>Jobs</p>
         </Link>
